@@ -279,3 +279,14 @@ app.listen(PORT, () => {
 ### Testing the API
 
 You can test the API using tools like Postman or Curl by making requests to the defined endpoints. Make sure to replace the email and password in the Nodemailer configuration with your own credentials.
+
+
+
+
+Design a RESTful API with the following endpoints:
+POST /schedule-email: Endpoint to schedule an email.
+GET /scheduled-emails: Endpoint to retrieve a list of scheduled emails.
+GET /scheduled-emails/{id}: Endpoint to retrieve details of a specific scheduled email.
+DELETE /scheduled-emails/{id}: Endpoint to cancel a scheduled email.
+
+this was you rpevious rfesponse genearted
