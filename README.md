@@ -12,8 +12,8 @@ Task-1 (Shipmnts task round)
 1. Clone the repository:
 
     ```sh
-    git clone https://github.com/yourusername/email-scheduling-service.git
-    cd email-scheduling-service
+    [git clone https://github.com/yourusername/email-scheduling-service.git](https://github.com/Shimork04/Shipments.git)
+    cd Shipmnts
     ```
 
 2. Install the dependencies:
