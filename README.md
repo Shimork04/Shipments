@@ -150,4 +150,6 @@ This is an email scheduling service built with Node.js, Express, Nodemailer, and
 ## Notes
 
 - The `scheduleTime` field should be in cron format. For example, `* * * * *` means the task will run every minute. You can use [crontab.guru](https://crontab.guru/) to generate cron expressions.
+  ![image](https://github.com/user-attachments/assets/49b3b60a-1e69-4ffb-bb7a-bbce506c651b)
+
 - Attachments should be provided as an array of objects with `filename` and `path`.
