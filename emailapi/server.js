@@ -31,11 +31,11 @@ const getSerializableScheduledEmails = () => {
 
 // post method to schedule the email
 app.post('/schedule-email', (req, res) => {
-    const { email, subject, message, scheduleTime, attachments } = req.body;
+    const { email, subject, body, scheduleTime, attachments } = req.body;
 
     // input validation - in case if mail is incomplete
-    if (!email || !subject || !message || !scheduleTime) {
-        console.log('Validation error: All fields are required.');
+    if (!email || !subject || !body || !scheduleTime) {
+        console.log('Error in Validating the Email, All fields are required.');
         return res.status(400).json({ error: 'All fields are required.' });
     }
 
@@ -47,10 +47,10 @@ app.post('/schedule-email', (req, res) => {
                 from: 'orbixstudio@hotmail.com',
                 to: email,
                 subject: subject,
-                text: message,
+                text: body,
                 attachments: attachments ? attachments.map(att => ({
-                    filename: attachmentfilename,
-                    path: attachment.path
+                    filename: att.filename,
+                    path: att.path
                 })) : []
             };
 
@@ -65,12 +65,12 @@ app.post('/schedule-email', (req, res) => {
             delete scheduledEmails[id];
         });
 
-        scheduledEmails[id] = { id, email, subject, message, scheduleTime, attachments, task };
+        scheduledEmails[id] = { id, email, subject, body, scheduleTime, attachments, task };
         console.log('Scheduled email:', scheduledEmails[id]);
-        res.status(201).json({ message: 'Email scheduled successfully.', id });
+        res.status(201).json({ message: 'Email is scheduled Successfully.', id });
     } catch (error) {
-        console.log('Error scheduling email:', error);
-        res.status(500).json({ error: 'Failed to schedule email.' });
+        console.log('Error in scheduling the email:', error);
+        res.status(500).json({ error: 'Failed to schedule the email.' });
     }
 });
 
@@ -86,7 +86,7 @@ app.get('/scheduled-emails/:id', (req, res) => {
 
     if (!scheduledEmail) {
         console.log(`Scheduled email with id ${id} not found.`);
-        return res.status(404).json({ error: 'Scheduled email not found.' });
+        return res.status(404).json({ error: 'Email, you are trying to find does not exist.' });
     }
 
     const { task, ...rest } = scheduledEmail;
@@ -100,14 +100,14 @@ app.delete('/scheduled-emails/:id', (req, res) => {
 
     if (!scheduledEmail) {
         console.log(`Scheduled email with id ${id} not found.`);
-        return res.status(404).json({ error: 'Scheduled email not found.' });
+        return res.status(404).json({ error: 'Email, you are trying to delete does not exist.' });
     }
 
     scheduledEmail.task.stop();
     delete scheduledEmails[id];
 
     console.log(`Scheduled email with id ${id} canceled.`);
-    res.status(200).json({ message: 'Scheduled email canceled successfully.' });
+    res.status(200).json({ message: 'Scheduled Email canceled.' });
 });
 
 app.listen(PORT, () => {
