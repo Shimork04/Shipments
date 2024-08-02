@@ -21,16 +21,7 @@ Task-1 (Shipmnts task round)
     ```sh
     npm install
     ```
-
-3. Set up environment variables (Optional):
-
-    Replace the hardcoded email and password with environment variables for security. Create a `.env` file in the root directory and add the following:
-
-    ```sh
-    EMAIL_USER=your_hotmail_email
-    EMAIL_PASS=your_hotmail_password
-    ```
-
+    
 4. Start the server:
 
     ```sh
