@@ -49,8 +49,8 @@ app.post('/schedule-email', (req, res) => {
                 subject: subject,
                 text: message,
                 attachments: attachments ? attachments.map(att => ({
-                    filename: att.filename,
-                    path: att.path
+                    filename: attachmentfilename,
+                    path: attachment.path
                 })) : []
             };
 
