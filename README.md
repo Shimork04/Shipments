@@ -44,7 +44,7 @@ Task-1 (Shipmnts task round)
         "email": "recipient@example.com",
         "subject": "Test Email",
         "body": "This is a test email.",
-        "scheduleTime": "* * * * *",
+        "scheduleTime": "*/1 * * * *",    // for sending email every minute
         "attachments": [
             {
                 "filename": "test.txt",
