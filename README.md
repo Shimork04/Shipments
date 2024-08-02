@@ -12,7 +12,7 @@ Task-1 (Shipmnts task round)
 1. Clone the repository:
 
     ```sh
-    [git clone https://github.com/Shimork04/Shipments.git](https://github.com/Shimork04/Shipmnts_task)
+    git clone https://github.com/Shimork04/Shipmnts_task
     cd Shipmnts
     ```
 
