@@ -31,76 +31,23 @@ Task-1 (Shipmnts task round)
         ]
     }
     ```
-
-- **Response:**
-
-    ```json
-    {
-        "message": "Email scheduled successfully.",
-        "id": "unique-id"
-    }
-    ```
-
 ### 2. Get All Scheduled Emails
 
 - **URL:** `/scheduled-emails`
 - **Method:** `GET`
 - **Description:** Retrieves all scheduled emails.
-- **Response:**
-
-    ```json
-    [
-        {
-            "id": "unique-id",
-            "email": "recipient@example.com",
-            "subject": "Test Email",
-            "message": "This is a test email.",
-            "scheduleTime": "* * * * *",
-            "attachments": [
-                {
-                    "filename": "test.txt",
-                    "path": "./test.txt"
-                }
-            ]
-        }
-    ]
-    ```
 
 ### 3. Get a Specific Scheduled Email
 
 - **URL:** `/scheduled-emails/:id`
 - **Method:** `GET`
 - **Description:** Retrieves a specific scheduled email by its ID.
-- **Response:**
-
-    ```json
-    {
-        "id": "unique-id",
-        "email": "recipient@example.com",
-        "subject": "Test Email",
-        "message": "This is a test email.",
-        "scheduleTime": "* * * * *",
-        "attachments": [
-            {
-                "filename": "test.txt",
-                "path": "./test.txt"
-            }
-        ]
-    }
-    ```
 
 ### 4. Delete a Scheduled Email
 
 - **URL:** `/scheduled-emails/:id`
 - **Method:** `DELETE`
 - **Description:** Deletes a scheduled email by its ID.
-- **Response:**
-
-    ```json
-    {
-        "message": "Scheduled email canceled successfully."
-    }
-    ```
 
 ## Note
 
