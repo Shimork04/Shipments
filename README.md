@@ -4,8 +4,8 @@ This is an email scheduling service built with Node.js, Express, Nodemailer, and
 
 ## Specifications
 
-- Node.js (v14 or higher)
-- npm (v6 or higher)
+- Node.js
+- npm
 
 ## Installation
 
