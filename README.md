@@ -43,7 +43,7 @@ Task-1 (Shipmnts task round)
     {
         "email": "recipient@example.com",
         "subject": "Test Email",
-        "message": "This is a test email.",
+        "body": "This is a test email.",
         "scheduleTime": "* * * * *",
         "attachments": [
             {
