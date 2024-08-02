@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 3000;
 
-// configuring nodemailer transporter
+// configuring nodemailer
 const transporter = nodemailer.createTransport({
     service: 'hotmail',
     auth: {
@@ -18,10 +18,9 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-// local email storage
+// storing the scheduled emails
 const scheduledEmails = {};
 
-// serializing tasks
 const getSerializableScheduledEmails = () => {
     return Object.values(scheduledEmails).map(email => {
         const { task, ...rest } = email;
@@ -29,7 +28,7 @@ const getSerializableScheduledEmails = () => {
     });
 };
 
-// post method to schedule the email
+// post method to schedule emails
 app.post('/schedule-email', (req, res) => {
     const { email, subject, body, scheduleTime, attachments } = req.body;
 
@@ -74,12 +73,12 @@ app.post('/schedule-email', (req, res) => {
     }
 });
 
-// get method for all emails
+// get method for emails
 app.get('/scheduled-emails', (req, res) => {
     res.status(200).json(getSerializableScheduledEmails());
 });
 
-// get method to retrieve specific email
+// get method for specific email
 app.get('/scheduled-emails/:id', (req, res) => {
     const { id } = req.params;
     const scheduledEmail = scheduledEmails[id];
@@ -93,7 +92,7 @@ app.get('/scheduled-emails/:id', (req, res) => {
     res.status(200).json(rest);
 });
 
-// delete a scheduled email
+// delete scheduled email
 app.delete('/scheduled-emails/:id', (req, res) => {
     const { id } = req.params;
     const scheduledEmail = scheduledEmails[id];
